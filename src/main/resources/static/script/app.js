@@ -10,9 +10,9 @@ app.controller("produitController",
 			$scope.size = 5;
 			$scope.pageMax = 0;
 			
-		$scope.chercher = function(){
+		$scope.chercher = function(numeroPage){
 			$http.get("http://localhost:8080/chercher?mc="+$scope.motCle
-					+"&page="+$scope.pageCourante+"&size="+$scope.size)
+					+"&page="+numeroPage+"&size="+$scope.size)
 			.then(
 				function(object){
 					$scope.pageProduits = object.data;
@@ -27,5 +27,7 @@ app.controller("produitController",
 		
 		$scope.changerPage = function(value){
 			
+			var numeroPage = $scope.pageCourante + value;
+			$scope.chercher(numeroPage);
 		}
 	});

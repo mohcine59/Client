@@ -9,7 +9,7 @@
 	<h3 class="">Liste des produits</h3>
 	<div class="container">
 		<label>Mot clé</label> <input type="text" ng-model="motCle">
-		<button class="btn btn-primary" ng-click="chercher()">Chercher</button>
+		<button class="btn btn-primary" ng-click="chercher({{pageCourante}})">Chercher</button>
 	</div>
 	<div class="container">
 		<table class="table table-striped">
@@ -28,9 +28,9 @@
 		</table>
 		<div class="container">
 			<ul class="pagination">
-				<li><a ng-click=""><</a></li>
+				<li><a ng-click="changerPage(-1)"><</a></li>
 				<li><a ng-click="">{{pageCourante}}</a></li>
-				<li><a ng-click="">></a></li>
+				<li><a ng-click="changerPage(1)">></a></li>
 			</ul>
 		</div>
 	</div>
